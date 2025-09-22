@@ -265,7 +265,7 @@ class AnalizadorTorneo {
     }
 
     // Determinar ganador
-    if (partido.resultado !== "Pendiente" && partido.resultado.includes("-")) {
+    if (partido.resultado !== "Pendiente" && this.contieneGuion(partido.resultado)) {
       const goles = partido.resultado.split("-")
       const golesLocal = Number.parseInt(goles[0])
       const golesVisitante = Number.parseInt(goles[1])
@@ -361,7 +361,7 @@ class AnalizadorTorneo {
 
     // Procesar cada partido para calcular estadísticas
     this.partidos.forEach((partido) => {
-      if (partido.resultado !== "Pendiente" && partido.resultado.includes("-")) {
+      if (partido.resultado !== "Pendiente" && this.contieneGuion(partido.resultado)) {
         const goles = partido.resultado.split("-")
         const golesLocal = Number.parseInt(goles[0])
         const golesVisitante = Number.parseInt(goles[1])
@@ -512,6 +512,17 @@ class AnalizadorTorneo {
     }
     return resultado
   }
+
+  // Manual method to check for dash character
+  contieneGuion(texto) {
+    for (let i = 0; i < texto.length; i++) {
+      if (texto[i] === "-") {
+        return true
+      }
+    }
+    return false
+  }
 }
 
 window.AnalizadorTorneo = AnalizadorTorneo
+
