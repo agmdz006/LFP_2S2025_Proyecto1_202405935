@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourneyJS - Analizador Léxico para Gestión de Torneos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>TourneyJS</h1>
+            <p>Analizador Léxico para Gestión de Torneos Deportivos</p>
+        </header>
+
+        <main class="main-content">
+            <section class="upload-section">
+                <h2>Cargar Archivo de Torneo</h2>
+                <div class="file-input-container">
+                    <input type="file" id="inputArchivo" accept=".txt" class="file-input">
+                    <label for="inputArchivo" class="file-label">
+                        Seleccionar archivo .txt
+                    </label>
+                </div>
+                <!-- Added textarea to show file content -->
+                <div class="file-content-container">
+                    <h3>Contenido del Archivo:</h3>
+                    <textarea id="contenidoArchivo" class="file-content-textarea" readonly placeholder="El contenido del archivo seleccionado aparecerá aquí..."></textarea>
+                </div>
+                <div id="mensaje" class="mensaje-container"></div>
+            </section>
+
+            <section class="controls-section">
+                <h2>Reportes Disponibles</h2>
+                <div class="buttons-grid">
+                    <button id="btnTokens" class="btn btn-primary disabled" disabled>
+                        📋 Tokens Extraídos
+                    </button>
+                    <button id="btnErrores" class="btn btn-danger disabled" disabled>
+                        ⚠️ Errores Léxicos
+                    </button>
+                    <button id="btnBracket" class="btn btn-success disabled" disabled>
+                        🏆 Bracket de Eliminación
+                    </button>
+                    <button id="btnEstadisticas" class="btn btn-info disabled" disabled>
+                        📊 Estadísticas por Equipo
+                    </button>
+                    <button id="btnGoleadores" class="btn btn-warning disabled" disabled>
+                        ⚽ Tabla de Goleadores
+                    </button>
+                    <button id="btnGeneral" class="btn btn-secondary disabled" disabled>
+                        📈 Información General
+                    </button>
+                    <!-- Added Graphviz button for diagram generation -->
+                    <button id="btnGraphviz" class="btn btn-graphviz disabled" disabled>
+                        📊 Diagramas Graphviz
+                    </button>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <div id="resultado" class="resultado-container">
+                    <!-- Placeholder removed -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 TourneyJS - Proyecto de Lenguajes Formales y de Programación</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="Token.js"></script>
+    <script src="Lexer.js"></script>
+    <script src="AnalizadorTorneo.js"></script>
+    <!-- Added GraphvizGenerator script -->
+    <script src="GraphvizGenerator.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+
+
